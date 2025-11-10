@@ -1,0 +1,23 @@
+# Built application files
+*.apk
+*.ap_
+*.aab
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+release/
+build/
+
+# Firebase - IMPORTANT!
+google-services.json
+
+# Android Profiling
+*.hprof

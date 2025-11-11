@@ -10,7 +10,6 @@ data class User(
     val createdAt: Long = System.currentTimeMillis(),
 
     // Student-specific fields
-    val educationLevel: String = "", // "Primary", "Secondary", "A-Level", "University"
     val subjectsOfInterest: List<String> = emptyList(),
 
     // Tutor-specific fields
@@ -18,7 +17,6 @@ data class User(
     val educationLevelsToTeach: List<String> = emptyList(),
     val hourlyRate: String = "",
     val bio: String = "",
-    val qualifications: String = "",
     val rating: Double = 0.0,
     val totalReviews: Int = 0
 )

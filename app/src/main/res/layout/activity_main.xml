@@ -19,8 +19,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Fragment Container -->
-    <androidx.fragment.app.FragmentContainerView
+    <!-- Fragment Container - Changed to FrameLayout -->
+    <FrameLayout
         android:id="@+id/nav_host_fragment"
         android:layout_width="0dp"
         android:layout_height="0dp"

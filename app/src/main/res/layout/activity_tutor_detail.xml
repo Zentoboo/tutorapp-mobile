@@ -269,22 +269,22 @@
                 android:orientation="horizontal"
                 android:weightSum="2">
 
-                <!-- Call Button -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/callButton"
-                    style="@style/SecondaryButton"
-                    android:layout_width="0dp"
-                    android:layout_height="56dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    android:text="Call"
-                    app:icon="@android:drawable/ic_menu_call" />
+<!--                &lt;!&ndash; Call Button &ndash;&gt;-->
+<!--                <com.google.android.material.button.MaterialButton-->
+<!--                    android:id="@+id/callButton"-->
+<!--                    style="@style/SecondaryButton"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="56dp"-->
+<!--                    android:layout_marginEnd="8dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="Call"-->
+<!--                    app:icon="@android:drawable/ic_menu_call" />-->
 
                 <!-- Message Button -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/messageButton"
                     style="@style/SecondaryButton"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"

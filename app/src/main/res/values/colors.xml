@@ -33,4 +33,7 @@
     <!-- Tutor Specific -->
     <color name="tutor_badge">#8B5CF6</color>
     <color name="student_badge">#EC4899</color>
+
+
+    <color name="divider">#E5E7EB</color>
 </resources>

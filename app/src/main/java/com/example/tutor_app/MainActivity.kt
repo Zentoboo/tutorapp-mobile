@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.navigation_bookings -> {
                     toolbar.title = "My Bookings"
-                    loadFragment(BookingsFragment())
+                    loadFragment(ScheduleFragment())
                     true
                 }
                 R.id.navigation_schedule -> {

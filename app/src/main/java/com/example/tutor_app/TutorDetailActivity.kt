@@ -37,6 +37,8 @@ class TutorDetailActivity : AppCompatActivity() {
     private var tutorId: String = ""
     private var tutorPhone: String = ""
     private var tutorEmail: String = ""
+    private var tutorName: String = ""
+    private var hourlyRate: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +58,6 @@ class TutorDetailActivity : AppCompatActivity() {
         subjectsChipGroup = findViewById(R.id.subjectsChipGroup)
         educationLevelsChipGroup = findViewById(R.id.educationLevelsChipGroup)
         tutorBioText = findViewById(R.id.tutorBioText)
-        callButton = findViewById(R.id.callButton)
         messageButton = findViewById(R.id.messageButton)
         bookSessionButton = findViewById(R.id.bookSessionButton)
         backButton = findViewById(R.id.backButton)
@@ -76,26 +77,14 @@ class TutorDetailActivity : AppCompatActivity() {
             finish()
         }
 
-        // Call button - Implicit Intent
-        callButton.setOnClickListener {
-            if (tutorPhone.isNotEmpty()) {
-                val intent = Intent(Intent.ACTION_DIAL)
-                intent.data = Uri.parse("tel:$tutorPhone")
-                startActivity(intent)
-            } else {
-                Toast.makeText(this, "Phone number not available", Toast.LENGTH_SHORT).show()
-            }
-        }
-
         // Message button - Open chat
         messageButton.setOnClickListener {
             openChat()
         }
 
-        // Book Session button
+        // Book Session button - Open booking form
         bookSessionButton.setOnClickListener {
-            Toast.makeText(this, "Booking feature coming soon!", Toast.LENGTH_SHORT).show()
-            // TODO: Implement booking functionality later
+            openBookingForm()
         }
     }
 
@@ -133,6 +122,8 @@ class TutorDetailActivity : AppCompatActivity() {
     private fun displayTutorDetails(tutor: Tutor) {
         tutorPhone = tutor.phoneNumber
         tutorEmail = tutor.email
+        tutorName = tutor.name
+        hourlyRate = tutor.hourlyRate.toDoubleOrNull() ?: 0.0
 
         // Display name
         tutorNameText.text = tutor.name
@@ -212,5 +203,21 @@ class TutorDetailActivity : AppCompatActivity() {
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun openBookingForm() {
+        val currentUserId = auth.currentUser?.uid
+
+        if (currentUserId == null) {
+            Toast.makeText(this, "Please login to book a session", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Open CreateBookingActivity
+        val intent = Intent(this, CreateBookingActivity::class.java)
+        intent.putExtra("TUTOR_ID", tutorId)
+        intent.putExtra("TUTOR_NAME", tutorName)
+        intent.putExtra("HOURLY_RATE", hourlyRate)
+        startActivity(intent)
     }
 }

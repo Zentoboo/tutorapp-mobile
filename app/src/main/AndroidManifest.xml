@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tutor_app">
         <activity
+            android:name=".CreateBookingActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChatActivity"
             android:exported="false" />
         <activity
